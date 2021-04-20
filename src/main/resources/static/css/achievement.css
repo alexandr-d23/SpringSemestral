@@ -1,0 +1,21 @@
+
+.achieve{
+    height: 70px;
+    margin: 20px 160px;
+    background: #0d49fa;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 40px 10px 10px;
+    border-radius: 20px;
+}
+
+.description_achieve{
+    text-decoration: underline;
+}
+
+.value_achieve{
+    width: auto;
+    text-align: center;
+}

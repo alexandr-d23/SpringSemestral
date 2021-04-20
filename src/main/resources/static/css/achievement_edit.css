@@ -1,0 +1,18 @@
+
+.achieve{
+    height: 70px;
+    margin: 20px 56px;
+    background: #46fd02;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+.value_achieve{
+    width: auto;
+    text-align: center;
+}

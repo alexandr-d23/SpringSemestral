@@ -1,0 +1,19 @@
+.my-left-block{
+    padding: 100px 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: #2cd69d;
+    width: 15%;
+    gap:50px
+}
+
+.my-left-block > a{
+    color: #151719;
+}
+
+@media (max-width: 800px) {
+    .my-left-block{
+        justify-content: center;
+    }
+}

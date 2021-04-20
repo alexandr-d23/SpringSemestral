@@ -1,0 +1,25 @@
+GET http://localhost:8080/products
+
+###
+
+POST http://localhost:8080/products
+Content-Type: application/json
+
+{
+"cost" : 1000,
+"type": "mult",
+"value": 100,
+"description": "Умножаем на 100"
+}
+
+###
+
+PUT http://localhost:8080/products/1
+Content-Type: application/json
+
+{
+"cost" : 1000,
+"type": "mult",
+"value": 200,
+"description": "Умножаем на 200"
+}

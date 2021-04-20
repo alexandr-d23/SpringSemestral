@@ -1,0 +1,46 @@
+.my_header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    color: #7fffd4;
+    background: #151719;
+    flex-shrink: 0;
+    padding: 20px;
+    height: auto;
+    text-align: center;
+}
+.main_button{
+    margin-left: 30px;
+}
+.center-buttons-block{
+    justify-content: space-between;
+    flex-direction: row;
+}
+.account{
+    display: flex;
+    flex-direction: row;
+}
+.right-buttons-block{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 5px;
+    gap: 30px;
+    max-height: 100px;
+}
+
+@media (max-width: 800px) {
+
+    .my_header {
+        flex-direction: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .my_header > .right-buttons-block {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+}

@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p{
+    text-align: center;
+}
+
+.wrong-data{
+    margin-left: auto;
+    margin-right: auto;
+    color: #ff0000;
+}
+
+.no_money_notification{
+    color: red;
+    text-align: center;
+}
+.user-registered{
+    margin-left: auto;
+    margin-right: auto;
+    color: #26e726;
+}
+
+.my_body{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.header-block{
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+    margin-top: 10px;
+    margin-right: 30px;
+}
+
+.my_container{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    flex: 1 0 auto;
+}
+
+.game_description{
+
+}
+
+.my-center-block{
+    border-radius: 30px;
+    font-size: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+    background: #f0f8ff;
+    width: 70%;
+    padding-top: 50px;
+}
+
+.bought_item{
+    color: #26e726;
+}
+
+.data-form{
+    border-radius: 30px;
+    padding: 50px;
+    background: #95f1ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+.my-center-block > p{
+    margin: 10px;
+    text-align: center;
+}
+
+.data-button{
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 100px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.field{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.my-right-block{
+    width: 15%;
+    background: #dcdcdc;
+}
+.title{
+    justify-content: center;
+    margin: 10px 10px 10px 30px;
+}
+
+.my-left-block{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: #2cd69d;
+    width: 15%;
+    gap:50px
+}
+
+.my-left-block > a{
+    color: #151719;
+}
+
+@media (max-width: 800px){
+
+    .my_container{
+        flex-direction: column;
+    }
+
+    .my_container > div{
+        width: auto;
+        min-height: 150px;
+        height: auto;
+    }
+
+}
+

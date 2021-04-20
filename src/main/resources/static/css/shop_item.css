@@ -1,0 +1,18 @@
+.value_achieve{
+    width: auto;
+    text-align: center;
+}
+form{
+    height: 85px;
+    margin: 10px 40px;
+    color: black;
+    background: #eb5def;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 30px;
+}
+.description_achieve{
+    text-decoration: underline;
+}
