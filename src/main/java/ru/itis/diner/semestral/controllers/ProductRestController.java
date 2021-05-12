@@ -35,14 +35,12 @@ public class ProductRestController {
 
     @PostMapping("/products")
     public ResponseEntity<ProductDto> addProduct(@RequestBody ProductDto product) {
-        System.out.println("post" + product + " " );
         shopService.addProduct(product);
         return ResponseEntity.ok(product);
     }
 
     @PutMapping("/products/{product-id}")
-    public ResponseEntity<ProductDto> updateTeacher(@PathVariable("product-id") Long productId, @RequestBody ProductDto product) {
-        System.out.println("put" + product + " " + productId);
+    public ResponseEntity<ProductDto> updateProduct(@PathVariable("product-id") Long productId, @RequestBody ProductDto product) {
         shopService.updateProduct(productId, product);
         return ResponseEntity.ok(product);
     }

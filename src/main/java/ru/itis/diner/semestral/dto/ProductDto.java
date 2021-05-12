@@ -12,8 +12,8 @@ import javax.persistence.Enumerated;
 @AllArgsConstructor
 @Builder
 public class ProductDto {
-    private int cost;
+    private Long cost;
     private String type;
-    private int value;
+    private Long value;
     private String description;
 }

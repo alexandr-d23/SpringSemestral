@@ -13,8 +13,8 @@ import javax.persistence.Enumerated;
 @AllArgsConstructor
 public class ProductRest {
     private Long id;
-    private int cost;
+    private Long cost;
     private BoostTypes type;
-    private int value;
+    private Long value;
     private String description;
 }

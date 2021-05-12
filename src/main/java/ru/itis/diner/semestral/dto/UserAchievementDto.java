@@ -13,12 +13,14 @@ import javax.persistence.Enumerated;
 @Builder
 public class UserAchievementDto {
     private Long id;
-    private int requiredValue;
-    private int currentValue;
+    private Long requiredValue;
+    private Long currentValue;
+    private AchievementTypes type;
     private String description;
-    private boolean got;
+    private Boolean got;
 
-    public boolean isGot() {
+    public Boolean getGot() {
+        if(currentValue==null || requiredValue == null)return false;
         return currentValue>=requiredValue;
     }
 }

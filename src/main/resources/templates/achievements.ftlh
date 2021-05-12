@@ -18,7 +18,7 @@
     <div class="my-center-block">
         <#if achievements??>
             <#list achievements as ach>
-                <@achievement.achievement description = "${ach.description}" requiredValue = "${ach.requiredValue}"/>
+                <@achievement.achievement got=ach.got    currentValue = "${ach.currentValue}" description = "${ach.description}" requiredValue = "${ach.requiredValue}"/>
             </#list>
         </#if>
     </div>

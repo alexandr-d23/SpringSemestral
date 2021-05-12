@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.List;
 
 @Data
@@ -22,43 +21,86 @@ public class User {
     private String email;
     private String name;
     private String hashPassword;
-    private String gender;
-    private String country;
     @Enumerated(value = EnumType.STRING)
     private State state;
     @Enumerated(value = EnumType.STRING)
     private Role role;
-    private BigInteger score;
-    private BigInteger clickPower;  
+    private Long score;
+    private Long clickPower;
+
+
+    private String confirmCode;
 
     @OneToMany(mappedBy = "actor")
     private List<Action> actions;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "product_users",
+            joinColumns = {@JoinColumn(
+                    name = "account_id",
+                    referencedColumnName = "id"
+            )},
+            inverseJoinColumns = {@JoinColumn(
+                    name = "product_id",
+                    referencedColumnName = "id"
+            )})
     private List<Product> products;
 
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany
+    @JoinTable(name = "achievement_users",
+            joinColumns = @JoinColumn(
+                    name = "account_id",
+                    referencedColumnName = "id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "achievement_id",
+                    referencedColumnName = "id"
+            )
+    )
     private List<Achievement> achievements;
 
-    public enum Role{
+    public enum EmailState{
+        CONFIRMED, NOT_CONFIRMED
+    }
+
+    public enum Role {
         USER,
         ADMIN
     }
 
-    public enum State{
+    public enum State {
         ACTIVE,
         BANNED
     }
 
-    public boolean isActive(){
+    public Long getClickPower() {
+        calculateClickPower();
+        return clickPower;
+    }
+
+    @PreUpdate
+    @PrePersist
+    @PostLoad
+    private void calculateClickPower(){
+        if(clickPower==1 && products != null) {
+            for (Product product : products) {
+                if (product.getType().equals(BoostTypes.mult)) clickPower *= product.getValue();
+            }
+            for (Product product : products) {
+                if (product.getType().equals(BoostTypes.add)) clickPower += product.getValue();
+            }
+        }
+    }
+
+    public boolean isActive() {
         return this.state == State.ACTIVE;
     }
 
-    public boolean isBanned(){
+    public boolean isBanned() {
         return this.state == State.BANNED;
     }
 
-    public boolean isAdmin(){
+    public boolean isAdmin() {
         return this.role == Role.ADMIN;
     }
 }

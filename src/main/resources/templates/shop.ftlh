@@ -19,6 +19,12 @@
 <div class="my_container">
     <@leftblock.leftblock/>
     <div class="my-center-block">
+        <#if description??>
+            <p class="no_money_notification">${description}</p>
+        </#if>
+        <#if bought??>
+            <p class="bought_item">${bought}</p>
+        </#if>
         <#if items??>
             <#list items as item>
                 <@shopItem.shopItem cost = "${item.cost}" description= "${item.description}" id="${item.id}"/>

@@ -17,21 +17,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int cost;
+    private Long cost;
     @Enumerated(value = EnumType.STRING)
     private BoostTypes type;
-    private int value;
+    private Long value;
     private String description;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            joinColumns = {@JoinColumn(
-                    name = "product_id",
-                    referencedColumnName = "id"
-            )},
-            inverseJoinColumns = {@JoinColumn(
-                    name = "account_id",
-                    referencedColumnName = "id"
-            )})
+    @ManyToMany(mappedBy = "products")
     private List<User> users;
 }

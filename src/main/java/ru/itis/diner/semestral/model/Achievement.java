@@ -19,19 +19,9 @@ public class Achievement {
     private Long id;
     @Enumerated(value = EnumType.STRING)
     private AchievementTypes type;
-    private int requiredValue;
+    private Long requiredValue;
     private String description;
 
-    @ManyToMany
-    @JoinTable(
-            joinColumns = @JoinColumn(
-                    name = "achievement_id",
-                    referencedColumnName = "id"
-            ),
-            inverseJoinColumns = @JoinColumn(
-                    name = "account_id",
-                    referencedColumnName = "id"
-            )
-    )
+    @ManyToMany(mappedBy = "achievements")
     private List<User> users;
 }

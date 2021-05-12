@@ -19,7 +19,7 @@ public class Action {
     private Long id;
     @Enumerated(value = EnumType.STRING)
     private AchievementTypes type;
-    private int value;
+    private Long value;
 
     @ManyToOne
     @JoinColumn(name = "actor_id")

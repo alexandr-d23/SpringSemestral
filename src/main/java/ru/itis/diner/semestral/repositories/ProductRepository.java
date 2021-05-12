@@ -15,4 +15,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
                     "INNER JOIN product ON p.product_id = product.id"
     )
     List<Product> getProductsByUserId(Long userId);
+
 }

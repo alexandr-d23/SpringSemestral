@@ -21,8 +21,9 @@ public class ProfileController {
     @GetMapping("/profile")
     public String getProfilePage(@AuthenticationPrincipal UserDetailsImpl user, ModelMap map, HttpServletRequest request) {
         map.put("User", user.getUser());
-        request.getSession().setAttribute("score", user.getUser().getScore());
         map.put("products", profileService.getProductsByUserId(user.getUser().getId()));
+        request.getSession().setAttribute("score", user.getUser().getScore());
         return "profile";
     }
+
 }

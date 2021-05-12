@@ -1,6 +1,6 @@
 <#macro shopItem id cost description>
     <link rel="stylesheet" type="text/css" href="<@spring.url 'css/shop_item.css'/>"/>
-    <form action="${springMacroRequestContext.contextPath}/shop" method="post">
+    <form action="/shop" method="post">
         <div>
             Cost: <p class="description_achieve">${cost}</p>
         </div>

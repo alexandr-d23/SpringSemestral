@@ -16,9 +16,11 @@
 <div class="my_container">
     <@leftblock.leftblock/>
     <div class="my-center-block">
-        <#list achievements as achievement>
-            <@gotAchievement.gotAchievement description= "${achievement.description}"/>
-        </#list>
+        <#if achievements??>
+            <#list achievements as achievement>
+                <@gotAchievement.gotAchievement description= "${achievement.description}"/>
+            </#list>
+        </#if>
     </div>
     <div class="my-right-block"  id = 'right-block'>
         <div class = "cub"></div>

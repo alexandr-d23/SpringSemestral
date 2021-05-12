@@ -12,5 +12,8 @@
         </#if>
         <a href="/rating" class="btn btn-warning btn-lg active" role="button"
            aria-pressed="true"><@spring.message "leftblock.btn.rating"/></a>
+
+        <a href="/weather" class="btn btn-info" role="button"
+           aria-pressed="true"><@spring.message "weather.kazan"/></a>
     </div>
 </#macro>

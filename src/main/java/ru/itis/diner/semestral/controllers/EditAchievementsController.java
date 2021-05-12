@@ -7,10 +7,12 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.itis.diner.semestral.dto.AchievementDto;
 import ru.itis.diner.semestral.dto.AchievementForm;
 import ru.itis.diner.semestral.services.AchievementService;
 
 import javax.annotation.security.PermitAll;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/edit")
@@ -20,25 +22,28 @@ public class EditAchievementsController {
     private AchievementService service;
 
     @GetMapping()
-    public String getAchievementPage(ModelMap map){
-        map.put("achievements", service.getAchievements());
+    public String getAchievementPage(ModelMap map) {
+        map.put("achievements", service.getAchievements()
+                .stream()
+                .map(AchievementDto::fromAchievement)
+                .collect(Collectors.toList()));
         return "admin_achievements";
     }
 
     @PostMapping(params = "delete")
-    public String deleteAchievement(AchievementForm form){
+    public String deleteAchievement(AchievementForm form) {
         service.deleteAchievement(form.getId());
         return "redirect:/edit";
     }
 
     @PostMapping(params = "change")
-    public String changeAchievement(AchievementForm form){
+    public String changeAchievement(AchievementForm form) {
         service.addAchievement(form);
         return "redirect:/edit";
     }
 
     @PostMapping(params = "add")
-    public String addAchievement(AchievementForm form){
+    public String addAchievement(AchievementForm form) {
         service.addAchievement(form);
         return "redirect:/edit";
     }

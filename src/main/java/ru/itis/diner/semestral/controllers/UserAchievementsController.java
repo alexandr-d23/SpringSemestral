@@ -18,7 +18,7 @@ public class UserAchievementsController {
 
     @GetMapping
     public String getAchievementPage(@AuthenticationPrincipal UserDetailsImpl user, ModelMap map){
-        //map.put("achievements",service.getUserAchievements(user.getUser().getId()));
+        map.put("achievements",service.getUserAchievements(user.getUser().getId()));
         return "user_achievements";
     }
 }

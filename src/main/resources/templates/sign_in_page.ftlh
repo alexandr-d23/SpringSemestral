@@ -24,7 +24,7 @@
                 Password: <input type="password" name="password"/>
                 <br>
                 <div class="data-button">
-                    <input type="submit" value="Sign in" name="color-button" class="btn btn-dark"/>
+                    <input type="submit" value="<@spring.message "sign_up_page.signIn"/>" name="color-button" class="btn btn-dark"/>
                 </div>
             </div>
         </form>
